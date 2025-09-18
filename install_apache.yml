@@ -1,0 +1,45 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update  repository index
+    yum:
+      update_cache: yes
+
+  - name: install apache2 package
+    yum:
+      name: httpd
+      state: present
+
+  - name: ensure Apache is started  and enabled
+    service:
+      name: httpd
+      state: started
+      enabled: true
+
+  - name: Allow  HTTP in firewalld
+    ansible.posix.firewalld:
+      service: http
+      permanent: true
+      state: enabled
+      immediate: true
+
+  - name: add php support for apache
+    yum:
+      name:
+        - php
+        - php-cli
+        - php-common
+      state: present
+      
+
+  - name: Install PHP with MySQL support
+    yum:
+      name:
+        - php
+        - php-cli
+        - php-common
+        - php-mysqlnd
+      state: present 

@@ -1,2 +1,3 @@
 10.13.14.251
 10.13.14.249
+localhost ansible_connection=local
