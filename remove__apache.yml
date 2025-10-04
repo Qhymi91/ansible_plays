@@ -8,12 +8,12 @@
     yum:
       update_cache: yes
 
-  - name: remove apache2 package
+  - name: remove httpd package
     yum:
       name: httpd
       state: absent
 
-  - name: stop and disable Apache service
+  - name: stop and disable httpd service
     service:
       name: httpd
       state: stopped

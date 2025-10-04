@@ -5,8 +5,8 @@
     myvar: "example  text"
     mybool: false
     mycities:
-      - New York
-      - Paris
+      - New Jersey
+      - Texas
 
   tasks:
    - name: print var
